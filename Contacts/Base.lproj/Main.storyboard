@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9051"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--New Contact-->
@@ -76,8 +77,35 @@
                     <view key="view" contentMode="scaleToFill" id="ZSJ-vG-uEO">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Contacts App" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HZv-aX-TaT">
+                                <rect key="frame" x="20" y="72" width="560" height="42"/>
+                                <animations/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="42" id="etE-wa-5kl"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="DamascusSemiBold" family="Damascus" pointSize="25"/>
+                                <color key="textColor" red="0.60000002384185791" green="0.40000000596046448" blue="0.20000000298023224" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="CoreDataDemoApp.png" translatesAutoresizingMaskIntoConstraints="NO" id="hgz-Ya-Hiw">
+                                <rect key="frame" x="160" y="114" width="280" height="280"/>
+                                <animations/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="280" id="Adr-J1-qNK"/>
+                                    <constraint firstAttribute="width" constant="280" id="GEU-Ky-VE8"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="hgz-Ya-Hiw" firstAttribute="centerX" secondItem="ZSJ-vG-uEO" secondAttribute="centerX" id="6zZ-2Q-ljC"/>
+                            <constraint firstItem="hgz-Ya-Hiw" firstAttribute="top" secondItem="HZv-aX-TaT" secondAttribute="bottom" id="P28-q9-O8X"/>
+                            <constraint firstItem="HZv-aX-TaT" firstAttribute="leading" secondItem="ZSJ-vG-uEO" secondAttribute="leadingMargin" id="Q7H-7T-KNU"/>
+                            <constraint firstItem="HZv-aX-TaT" firstAttribute="trailing" secondItem="ZSJ-vG-uEO" secondAttribute="trailingMargin" id="Wc7-Rd-iTH"/>
+                            <constraint firstItem="HZv-aX-TaT" firstAttribute="top" secondItem="srJ-2f-zdy" secondAttribute="bottom" constant="8" id="iaf-Kg-KcV"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Home" id="bMp-Ye-er0"/>
                 </viewController>
@@ -189,6 +217,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="CoreDataDemoApp.png" width="300" height="300"/>
         <image name="add.png" width="30" height="30"/>
         <image name="home.png" width="30" height="30"/>
     </resources>
