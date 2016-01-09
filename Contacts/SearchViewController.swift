@@ -7,13 +7,18 @@
 //
 
 import UIKit
+import CoreData
 
 class SearchViewController: UIViewController {
+    
+    var appDel: AppDelegate = AppDelegate()
+    var context: NSManagedObjectContext = NSManagedObjectContext(concurrencyType: NSManagedObjectContextConcurrencyType.MainQueueConcurrencyType)
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        appDel = UIApplication.sharedApplication().delegate as! AppDelegate
+        context = appDel.managedObjectContext
     }
 
     override func didReceiveMemoryWarning() {

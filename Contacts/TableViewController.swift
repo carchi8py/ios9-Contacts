@@ -7,8 +7,14 @@
 //
 
 import UIKit
+import CoreData
 
 class TableViewController: UITableViewController {
+    
+    var appDel: AppDelegate = AppDelegate()
+    var context: NSManagedObjectContext = NSManagedObjectContext(concurrencyType: NSManagedObjectContextConcurrencyType.MainQueueConcurrencyType)
+    
+    var results: [AnyObject]?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -18,6 +24,32 @@ class TableViewController: UITableViewController {
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+        
+        appDel = UIApplication.sharedApplication().delegate as! AppDelegate
+        context = appDel.managedObjectContext
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(true)
+        
+        let request = NSFetchRequest(entityName: "Contacts")
+        request.resultType = NSFetchRequestResultType.DictionaryResultType
+        
+        let sort1 = NSSortDescriptor(key: "firstName", ascending: true)
+        let sort2 = NSSortDescriptor(key: "lastName", ascending: true)
+        
+        request.sortDescriptors = [sort1, sort2]
+        
+        do {
+            results = [AnyObject]()
+            results = try context.executeFetchRequest(request)
+            
+            tableView.reloadData()
+        } catch _ {
+            let alertController = UIAlertController(title: "Error", message: "Error in Loading Records", preferredStyle: .Alert)
+            alertController.addAction(UIAlertAction(title: "Ok", style: .Default, handler: nil))
+            self.presentViewController(alertController, animated: true, completion: nil)
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -29,23 +61,22 @@ class TableViewController: UITableViewController {
 
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 0
+        return (results?.count)!
     }
 
-    /*
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("reuseIdentifier", forIndexPath: indexPath)
+        let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath)
 
-        // Configure the cell...
+        cell.textLabel?.text = results![indexPath.row].valueForKey("firstName")! as? String
+        cell.detailTextLabel?.text = results![indexPath.row].valueForKey("lastName")! as? String
 
         return cell
     }
-    */
 
     /*
     // Override to support conditional editing of the table view.
