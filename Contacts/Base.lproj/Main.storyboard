@@ -104,6 +104,9 @@
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="contactAdd" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="p3J-LO-Gnu">
                                 <rect key="frame" x="289" y="221" width="22" height="22"/>
+                                <connections>
+                                    <action selector="save:" destination="BYZ-38-t0r" eventType="touchUpInside" id="2gj-ds-r1u"/>
+                                </connections>
                             </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="v4e-UR-7qm">
                                 <rect key="frame" x="116" y="182" width="464" height="30"/>
@@ -138,6 +141,12 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="New Contact" id="opQ-xw-6eZ"/>
+                    <connections>
+                        <outlet property="email" destination="7SH-UF-VVm" id="Nx7-CN-3jx"/>
+                        <outlet property="firstName" destination="Ffg-If-RWO" id="mjm-eH-IKR"/>
+                        <outlet property="lastName" destination="rHU-n8-svm" id="BwU-hv-szS"/>
+                        <outlet property="phone" destination="v4e-UR-7qm" id="vlL-yt-CsN"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
