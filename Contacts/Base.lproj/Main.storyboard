@@ -179,6 +179,9 @@
                                     <constraint firstAttribute="width" constant="30" id="W0v-Z6-Jdo"/>
                                 </constraints>
                                 <state key="normal" title="Button" image="search.png"/>
+                                <connections>
+                                    <action selector="search:" destination="E7y-hC-rAT" eventType="touchUpInside" id="CCx-3n-uIF"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A8f-fr-vth">
                                 <rect key="frame" x="20" y="110" width="560" height="21"/>
@@ -240,6 +243,11 @@
                                                 <constraint firstItem="1by-sZ-Fzs" firstAttribute="top" secondItem="vfG-AC-DQv" secondAttribute="bottom" constant="8" id="uOm-Fj-Luh"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="emailLabel" destination="vfG-AC-DQv" id="Tcp-1z-ijy"/>
+                                            <outlet property="nameLabel" destination="yro-9O-df0" id="guK-I1-AIZ"/>
+                                            <outlet property="phoneLabel" destination="1by-sZ-Fzs" id="kVT-Dq-0L5"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -261,6 +269,11 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Search" id="9qg-4a-dr9"/>
+                    <connections>
+                        <outlet property="searchLabel" destination="A8f-fr-vth" id="Dyo-GG-hJO"/>
+                        <outlet property="searchText" destination="o0L-ye-Uhv" id="Hng-7c-TAz"/>
+                        <outlet property="tableView" destination="0QQ-d1-Dt0" id="e7l-2x-hUP"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Oyd-CN-fIp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
